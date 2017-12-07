@@ -1,0 +1,132 @@
+.container {
+  width: 1080px; }
+
+.inform_wrap {
+  position: relative;
+  width: 100%;
+  height: 1041px;
+  background: url("./images/web.jpg") no-repeat center;
+  background-size: cover; }
+  .inform_wrap .inform {
+    position: relative;
+    height: 1041px;
+    background: rgba(255, 255, 255, 0.5);
+    background: #fff\9;
+    filter: alpha(opacity=50); }
+  .inform_wrap .inform_left, .inform_wrap .inform_right {
+    background: rgba(255, 255, 255, 0.5);
+    background: #fff\9; }
+  .inform_wrap .inform_left {
+    border: solid 1px #e9e9e9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 1041px; }
+    .inform_wrap .inform_left h2, .inform_wrap .inform_left ul {
+      padding-left: 20px; }
+    .inform_wrap .inform_left h2 {
+      font-size: 16px;
+      line-height: 60px;
+      height: 60px;
+      color: #333;
+      font-weight: bold; }
+    .inform_wrap .inform_left li {
+      font-size: 0;
+      line-height: 24px;
+      line-height: 24px;
+      margin-bottom: 15px; }
+      .inform_wrap .inform_left li i, .inform_wrap .inform_left li a {
+        vertical-align: middle; }
+      .inform_wrap .inform_left li i {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #666; }
+      .inform_wrap .inform_left li a {
+        margin-left: 14px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #666; }
+    .inform_wrap .inform_left .action i {
+      background: #08f; }
+    .inform_wrap .inform_left .action a {
+      color: #08f; }
+  .inform_wrap .inform_right {
+    padding-right: 10px;
+    margin-left: 190px;
+    font-size: 12px; }
+    .inform_wrap .inform_right .inform_bottom {
+      border: solid 1px #e9e9e9;
+      position: absolute;
+      bottom: 10px;
+      width: 880px;
+      line-height: 40px;
+      border-radius: 2px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 41, 76, 0.05); }
+      .inform_wrap .inform_right .inform_bottom a {
+        color: #333;
+        font-size: 14px;
+        margin-right: 10px; }
+        .inform_wrap .inform_right .inform_bottom a:hover {
+          color: #08f; }
+      .inform_wrap .inform_right .inform_bottom .last, .inform_wrap .inform_right .inform_bottom .first {
+        margin: 0; }
+      .inform_wrap .inform_right .inform_bottom .select {
+        padding: 3px 6px;
+        border-radius: 2px;
+        background: #ebf0f5; }
+      .inform_wrap .inform_right .inform_bottom .prev {
+        color: #ccc; }
+      .inform_wrap .inform_right .inform_bottom span {
+        position: relative;
+        top: 5px;
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        background: #d9d9d9;
+        margin: 0 20px; }
+    .inform_wrap .inform_right h4, .inform_wrap .inform_right .inform_con {
+      position: relative;
+      border: solid 1px #e9e9e9;
+      background: #fff;
+      margin: 10px 0;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(0, 41, 76, 0.05); }
+    .inform_wrap .inform_right h4 {
+      padding: 0 20px;
+      font-size: 14px;
+      line-height: 40px;
+      height: 40px;
+      font-weight: bold;
+      color: #666; }
+    .inform_wrap .inform_right .inform_con {
+      padding: 18px 20px;
+      font-size: 0;
+      line-height: 2; }
+      .inform_wrap .inform_right .inform_con p {
+        color: #666; }
+      .inform_wrap .inform_right .inform_con span {
+        font-weight: bold;
+        color: #333; }
+      .inform_wrap .inform_right .inform_con i {
+        padding-left: 14px;
+        color: #999; }
+      .inform_wrap .inform_right .inform_con p, .inform_wrap .inform_right .inform_con i, .inform_wrap .inform_right .inform_con span {
+        font-size: 12px; }
+
+.to_top {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url("../images/back-top.png") no-repeat;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: 540px;
+  cursor: pointer; }
+
+/*# sourceMappingURL=imformation.css.map */
