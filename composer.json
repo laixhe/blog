@@ -1,8 +1,0 @@
-{
-    "name": "laixhe/laiphp",
-    "autoload":{
-        "psr-4":{
-            "library\\":"library/"
-        }
-    }
-}
