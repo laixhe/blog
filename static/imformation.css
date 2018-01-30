@@ -26,7 +26,7 @@
     .inform_wrap .inform_left h2, .inform_wrap .inform_left ul {
       padding-left: 20px; }
     .inform_wrap .inform_left h2 {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 60px;
       height: 60px;
       color: #333;
@@ -113,10 +113,9 @@
         font-weight: bold;
         color: #333; }
       .inform_wrap .inform_right .inform_con i {
-        padding-left: 14px;
         color: #999; }
       .inform_wrap .inform_right .inform_con p, .inform_wrap .inform_right .inform_con i, .inform_wrap .inform_right .inform_con span {
-        font-size: 12px; }
+        font-size: 14px; }
 
 .to_top {
   display: none;

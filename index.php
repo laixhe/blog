@@ -103,21 +103,24 @@ include './php/index.php';
 
                 <h4 style="display: none;"><?php echo $columnNameData['name'];?></h4>
 
+                <?php foreach ($columnDirData as $vData){ ?>
                 <div class="inform_con">
                     <div>
-                        <span>正在开工中</span>
-                        <i>2018年01月30日 10:35</i>
+                        <span>
+                            <a href="" style="font-size: 16px;font-weight: bold;">
+                                <?php echo $vData['title'];?>
+                            </a>
+                        </span>
                     </div>
-                    <p>正在开工中。。。。。</p>
+                    <p>
+                        <i class="layui-icon">&#xe62d;</i>
+                        <i><?php echo date('Y-m-d H:i:s',$vData['addtime']);?></i>
+                        <i>　</i>
+                        <i class="layui-icon">&#xe635;</i>
+                        <i><?php echo $vData['typestr'];?></i>
+                    </p>
                 </div>
-
-                <div class="inform_con">
-                    <div>
-                        <span>正在开工中</span>
-                        <i>2018年01月30日 10:35</i>
-                    </div>
-                    <p>正在开工中。。。。。</p>
-                </div>
+                <?php } ?>
 
             </div>
 

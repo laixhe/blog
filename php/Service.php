@@ -4,8 +4,10 @@
  * 服务注册
  *
  * @method Column Column()
+ * @method Catalog Catalog()
  */
-class Service{
+class Service
+{
 
     /**
      * @var Service 服务对象实例
@@ -57,7 +59,8 @@ class Service{
      * @param string $name 服务名
      * @return Service 返回所有实例化的服务类
      */
-    private function createService($name){
+    private function createService($name)
+    {
 
         if (isset(self::$instances[$name])){
             //已存在就返回
@@ -85,7 +88,8 @@ class Service{
      * @param array $arguments 方法参数
      * @return Service 返回方法对应的服务类
      */
-    public function __call($name, $arguments){
+    public function __call($name, $arguments)
+    {
         return $this->createService($name);
     }
 }
