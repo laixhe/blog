@@ -1,3 +1,6 @@
+<?php
+include './php/index.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
-    <title>Title</title>
+    <title>Laixhe</title>
 
     <link rel="stylesheet" href="static/css/reset.css">
     <link rel="stylesheet" href="static/js/layui/css/layui.css">
@@ -38,8 +41,9 @@
                 <div class="user">
 
                     <div class="user-content">
-                        <a class="user-name" href="javascript:;">赖炳松</a>
-                        <div class="user-list clearfix">
+                        <a class="user-name" href="javascript:alert('现在还没开工！')">赖炳松</a>
+
+                        <div class="user-list clearfix" style="display: none;">
                             <a href="javascript:;">
                                 <i class="layui-icon">&#xe612;</i>
                                 <span>GitHub</span>
@@ -60,14 +64,15 @@
 
                             </a>
                         </div>
+
                     </div>
 
-                    <a class="exit" href="javascript:;">关于我</a>
+                    <a class="exit" href="javascript:alert('现在还没开工！')">关于我</a>
                 </div>
 
             </div>
 
-            <a class="register" href="javascript:;">GitHub</a>
+            <a class="register" href="https://github.com/laixhe" target="_blank">GitHub</a>
 
         </div>
 
@@ -77,30 +82,31 @@
 
 <div class="inform_wrap">
     <div class="inform container clearfix">
+
         <div class="inform_left">
             <h2>开启历程</h2>
-            <ul>
-                <li class="action">
-                    <i></i>
-                    <a href="javascript:;">PHP</a>
-                </li>
+
+            <ul id="column">
+                <?php foreach($columnData as $columnValue){ ?>
                 <li>
                     <i></i>
-                    <a href="javascript:;">Golang</a>
+                    <a href="?name=<?php echo $columnValue['name'];?>"><?php echo $columnValue['name'];?></a>
                 </li>
+                <?php } ?>
 
             </ul>
         </div>
+
         <div class="inform_right">
 
             <div>
 
-                <h4 style="display: none;">PHP</h4>
+                <h4 style="display: none;"><?php echo $columnNameData['name'];?></h4>
 
                 <div class="inform_con">
                     <div>
                         <span>正在开工中</span>
-                        <i>2017年12月07日 19:34</i>
+                        <i>2018年01月30日 10:35</i>
                     </div>
                     <p>正在开工中。。。。。</p>
                 </div>
@@ -108,7 +114,7 @@
                 <div class="inform_con">
                     <div>
                         <span>正在开工中</span>
-                        <i>2017年12月07日 19:34</i>
+                        <i>2018年01月30日 10:35</i>
                     </div>
                     <p>正在开工中。。。。。</p>
                 </div>
@@ -127,9 +133,20 @@
                 <span>&nbsp;</span>
                 <a href="javascript:;" class="next">下一页</a>
             </div>
+
         </div>
+
     </div>
 </div>
 
+<div style="padding: 5px;">
+    <a href="http://www.miitbeian.gov.cn" target="_blank">鲁ICP备17035054号-1</a>
+</div>
+
+<script src="static/js/jquery-1.12.4.js"></script>
+<script>
+    var id = <?php echo $columnNameData['id'];?>;
+    $("#column li").eq(id-1).addClass("action");
+</script>
 </body>
 </html>
