@@ -5,6 +5,7 @@
  *
  * @method Column Column()
  * @method Catalog Catalog()
+ * @method FileData FileData()
  */
 class Service
 {

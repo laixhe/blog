@@ -1,5 +1,5 @@
 <?php
-include __DIR__ .'/php/index.php';
+include __DIR__ .'/php/show.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,45 +26,27 @@ include __DIR__ .'/php/index.php';
 
         <?php include __DIR__ .'/left.php';?>
 
+
         <div class="inform_right">
 
             <div>
-
-                <h4 style="display: none;"><?php echo $columnData['name'];?></h4>
-
-                <?php foreach ($columnDirData as $vData){ ?>
                 <div class="inform_con">
                     <div>
-                        <span>
-                            <a href="/show.php?id=<?php echo $vData['id'],'&cid=',$vData['cid'];?>" style="font-size: 16px;font-weight: bold;">
-                                <?php echo $vData['title'];?>
-                            </a>
+                        <span style="font-size: 16px;">
+                            1221
                         </span>
                     </div>
                     <p>
                         <i class="layui-icon">&#xe62d;</i>
-                        <i><?php echo date('Y-m-d H:i:s',$vData['addtime']);?></i>
+                        <i>2018-02-01 12:11:20</i>
                         <i>　</i>
                         <i class="layui-icon">&#xe635;</i>
-                        <i><?php echo $vData['cidstr'];?></i>
+                        <i>php</i>
+                        <p>35345</p>
                     </p>
                 </div>
-                <?php } ?>
-
             </div>
 
-            <div class="inform_bottom">
-                <a href="javascript:;" class="prev first">上一页</a>
-                <span>&nbsp;</span>
-                <a href="javascript:;" class="select">1</a>
-                <a href="javascript:;" class="select">2</a>
-                <a href="javascript:;" class="select">3</a>
-                <a href="javascript:;" class="select">4</a>
-                <a href="javascript:">...</a>
-                <a href="javascript:;" class="select last">60</a>
-                <span>&nbsp;</span>
-                <a href="javascript:;" class="next">下一页</a>
-            </div>
 
         </div>
 

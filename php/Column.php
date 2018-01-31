@@ -3,6 +3,7 @@
 /**
  * Class Column
  * 栏目数据
+ * 只能 (1 - 9) 9个栏目
  */
 class Column
 {
@@ -57,6 +58,29 @@ class Column
         }
 
         return $this->data[$key];
+    }
+
+    /**
+     * 获取数据
+     * @param int $id
+     * @return array
+     */
+    public function idGet($id=0)
+    {
+        if (empty($this->data)){
+            return [];
+        }
+        if ($id <= 0){
+            return $this->data;
+        }
+
+        foreach ($this->data as $v){
+            if($v['id'] == $id){
+                return $v;
+            }
+        }
+
+        return [];
     }
 
 }

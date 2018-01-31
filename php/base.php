@@ -18,29 +18,11 @@ spl_autoload_register(function ($class){
 //按需注册服务,服务类可以一样,服务名不能重复
 Service::addService(
     [
-        'Column'=>Column::class,   //栏目数据
-        'Catalog'=>Catalog::class, //数据目录操作
+        'Column'   => Column::class,   //栏目数据
+        'Catalog'  => Catalog::class,  //数据目录操作
+        'FileData' => FileData::class, //文件数据操作
     ]
 );
-
-/**
- * 获取某个文件下josn数据
- * @param string $path 路径
- * @return array
- */
-function getFileJosn($path=''){
-
-    if(is_file($path)){
-        $dirStr = file_get_contents($path);
-        if(!empty($dirStr)){
-            $dirData = json_decode($dirStr,true);
-            if(is_array($dirData)){
-                return $dirData;
-            }
-        }
-    }
-    return [];
-}
 
 //获取服务的实例
 $server = Service::getInstance();
@@ -50,7 +32,7 @@ $server = Service::getInstance();
 //    'id'      => 1,
 //    'idstr'   => md5(1),
 //    'title'   => '未果"标题"',
-//    'typeid'  => 1,
-//    'typestr' => 'php',
+//    'cid'     => 1,
+//    'cidstr'  => 'php',
 //    'addtime' => time()
 //]]);
