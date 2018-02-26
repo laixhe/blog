@@ -1,16 +1,19 @@
 <?php
 require __DIR__ .'/const.php';
+//require __DIR__ .'/FileData.php';
 
 //自动加载
 spl_autoload_register(function ($class){
 
+    //echo $class,'<br>';
+    if (class_exists($class)){
+        return;
+    }
+
     //判断是否有路径
     $file = realpath(__DIR__ .'/'. $class .'.php');
     if (is_file($file)){
-        if (!class_exists($class)){
-            require $file;
-            //echo $file,'<br>';
-        }
+        require $file;
     }
 
 },true,true);

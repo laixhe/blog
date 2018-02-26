@@ -12,7 +12,7 @@ class FileData
      * 代表有多少个栏目id，就有多少文章id
      * 为 0 时为删除 - 末实现
      */
-    protected $columnDat = DATA_PATH .'/Columnid.dat';
+    public $columnDat = '/Columnid.dat';
 
     /**
      * 获取文章id
@@ -23,7 +23,7 @@ class FileData
     public function getColumnDat($id=0){
 
         //获取文件数据
-        $cnstr =  $this->getFile($this->columnDat);
+        $cnstr =  $this->getFile(DATA_PATH . $this->columnDat);
         if(empty($cnstr)){
             return [];
         }
@@ -104,4 +104,5 @@ class FileData
         return $dirStr;
 
     }
+
 }

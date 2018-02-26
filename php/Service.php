@@ -3,9 +3,9 @@
 /**
  * 服务注册
  *
- * @method Column Column()
- * @method Catalog Catalog()
- * @method FileData FileData()
+ * @method Column   Column()
+ * @method Catalog  Catalog()
+ * @method Filedata Filedata()
  */
 class Service
 {
