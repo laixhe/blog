@@ -5,14 +5,12 @@
  * 栏目数据
  * 只能 (1 - 9) 9个栏目
  */
-class Column
-{
+class Column{
 
     //数据
     private $data = [];
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->getData();
     }
 
@@ -20,8 +18,7 @@ class Column
      * 获取文件数据
      * @return array
      */
-    private function getData()
-    {
+    private function getData(){
 
         //读取文件数据
         $file = COLUMN_PATH .'/column.json';
@@ -41,32 +38,11 @@ class Column
 
     /**
      * 获取数据
-     * @param string $key
-     * @return array
-     */
-    public function get($key = '')
-    {
-        if (empty($this->data)){
-            return [];
-        }
-        if (empty($key)){
-            return $this->data;
-        }
-
-        if (empty($this->data[$key])){
-            return [];
-        }
-
-        return $this->data[$key];
-    }
-
-    /**
-     * 获取数据
      * @param int $id
      * @return array
      */
-    public function idGet($id=0)
-    {
+    public function get($id=0){
+
         if (empty($this->data)){
             return [];
         }

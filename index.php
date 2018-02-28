@@ -8,7 +8,7 @@ include __DIR__ .'/php/index.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
-    <title>Laixhe</title>
+    <title>享受学习与思考的乐趣-Laiki</title>
 
     <link rel="stylesheet" href="static/css/reset.css">
     <link rel="stylesheet" href="static/js/layui/css/layui.css">
@@ -53,7 +53,7 @@ include __DIR__ .'/php/index.php';
 
             </div>
 
-            <div class="inform_bottom">
+            <div class="inform_bottom" style="display: none;">
                 <a href="javascript:;" class="prev first">上一页</a>
                 <span>&nbsp;</span>
                 <a href="javascript:;" class="select">1</a>

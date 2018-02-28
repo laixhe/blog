@@ -6,7 +6,7 @@
 
             <a href="/">
                 <i class="layui-icon">&#xe68e;</i>
-                Laixhe
+                Laiki
             </a>
 
         </div>

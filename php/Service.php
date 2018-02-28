@@ -7,8 +7,7 @@
  * @method Catalog  Catalog()
  * @method Filedata Filedata()
  */
-class Service
-{
+class Service{
 
     /**
      * @var Service 服务对象实例
@@ -37,8 +36,7 @@ class Service
      * @access public
      * @return static
      */
-    public static function getInstance()
-    {
+    public static function getInstance(){
         // 判断自身的单例对象实例是否是自身的实例(单例模式)
         if (! (self::$instance instanceof self)) {
             self::$instance = new self;
@@ -50,8 +48,7 @@ class Service
      * 按需注册服务,服务类可以一样,服务名不能重复
      * @param array $service 服务配置数组
      */
-    public static function addService($service)
-    {
+    public static function addService($service){
         self::$service = array_merge(self::$service,$service);
     }
 
@@ -60,8 +57,7 @@ class Service
      * @param string $name 服务名
      * @return Service 返回所有实例化的服务类
      */
-    private function createService($name)
-    {
+    private function createService($name){
 
         if (isset(self::$instances[$name])){
             //已存在就返回
@@ -89,8 +85,8 @@ class Service
      * @param array $arguments 方法参数
      * @return Service 返回方法对应的服务类
      */
-    public function __call($name, $arguments)
-    {
+    public function __call($name, $arguments){
         return $this->createService($name);
     }
+
 }

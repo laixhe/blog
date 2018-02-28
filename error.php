@@ -1,5 +1,5 @@
 <?php
-include __DIR__ .'/php/show.php';
+include __DIR__ .'/php/error.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,20 +31,10 @@ include __DIR__ .'/php/show.php';
 
             <div>
                 <div class="inform_con">
-                    <div>
-                        <span style="font-size: 16px;">
-                            <?php echo $idInfo['title'];?>
-                        </span>
-                    </div>
-                    <div>
-                        <i class="layui-icon">&#xe62d;</i>
-                        <i><?php echo date('Y-m-d H:i:s',$idInfo['addtime']);?></i>
-                        <i>　</i>
-                        <i class="layui-icon">&#xe635;</i>
-                        <i><?php echo $idInfo['cidstr'];?></i>
-                        <p><?php echo $idContent;?></p>
-                    </div>
-                </>
+                    <p>
+                       内容不存在！
+                    </p>
+                </div>
             </div>
 
 
@@ -57,10 +47,5 @@ include __DIR__ .'/php/show.php';
     <a href="http://www.miitbeian.gov.cn" target="_blank">鲁ICP备17035054号-1</a>
 </div>
 
-<script src="static/js/jquery-1.12.4.js"></script>
-<script>
-    var id = <?php echo $cidData['id'];?>;
-    $("#column li").eq(id-1).addClass("action");
-</script>
 </body>
 </html>

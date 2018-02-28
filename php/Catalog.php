@@ -3,8 +3,7 @@
 /**
  * 目录操作
  */
-class Catalog
-{
+class Catalog{
 
 //    /**
 //     * @var Catalog 对象实例
@@ -36,8 +35,7 @@ class Catalog
      * @param string $name
      * @return string
      */
-    public function getDir($name='')
-    {
+    public function getDir($name=''){
         if (empty($name)){
             return DATA_PATH;
         }
@@ -49,4 +47,5 @@ class Catalog
 
         return $paht;
     }
+
 }
