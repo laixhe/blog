@@ -8,7 +8,7 @@ include __DIR__ .'/php/show.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
-    <title>Laixhe-享受学习与思考的乐趣</title>
+    <title><?php echo $idInfo['title'];?>-Laixhe-享受学习与思考的乐趣</title>
 
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/js/layui/css/layui.css">
@@ -41,7 +41,7 @@ include __DIR__ .'/php/show.php';
                         <i><?php echo date('Y-m-d H:i:s',$idInfo['addtime']);?></i>
                         <i>　</i>
                         <i class="layui-icon">&#xe635;</i>
-                        <i><?php echo $idInfo['cidstr'];?></i>
+                        <i><?php echo $cidData['name'];?></i>
                         <p><?php echo $idContent;?></p>
                     </div>
                 </>

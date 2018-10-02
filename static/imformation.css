@@ -4,12 +4,13 @@
 .inform_wrap {
   position: relative;
   width: 100%;
-  height: 1041px;
+  height: 100%;
+  min-height: 1040px;
   background: url("./images/web.jpg") no-repeat center;
   background-size: cover; }
   .inform_wrap .inform {
     position: relative;
-    height: 1041px;
+    min-height: 1025px;
     background: rgba(255, 255, 255, 0.5);
     background: #fff\9;
     filter: alpha(opacity=50); }
@@ -22,7 +23,7 @@
     top: 0;
     left: 0;
     width: 180px;
-    height: 1041px; }
+    height: 100%; }
     .inform_wrap .inform_left h2, .inform_wrap .inform_left ul {
       padding-left: 20px; }
     .inform_wrap .inform_left h2 {
@@ -108,7 +109,7 @@
       font-size: 0;
       line-height: 2; }
       .inform_wrap .inform_right .inform_con p {
-        color: #666; }
+        color: #333; }
       .inform_wrap .inform_right .inform_con span {
         font-weight: bold;
         color: #333; }

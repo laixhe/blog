@@ -1,1 +1,1 @@
-[{"id":1,"name":"php"},{"id":2,"name":"golang"}]
+[{"id":1,"name":"base","as":"计算机基础"},{"id":2,"name":"golang","as":"GO语言"},{"id":3,"name":"php","as":"PHP语言"}]

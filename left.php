@@ -5,7 +5,7 @@
         <?php foreach($columnData as $columnValue){ ?>
             <li>
                 <i></i>
-                <a href="/?cid=<?php echo $columnValue['id'];?>"><?php echo $columnValue['name'];?></a>
+                <a href="/?cid=<?php echo $columnValue['id'];?>" title="<?php echo $columnValue['as'];?>"><?php echo $columnValue['name'];?></a>
             </li>
         <?php } ?>
 
