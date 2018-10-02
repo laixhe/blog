@@ -31,7 +31,7 @@ include __DIR__ .'/php/show.php';
 
             <div>
                 <div class="inform_con">
-                    <div>
+                    <div title="<?php echo $idInfo['title'];?>">
                         <span style="font-size: 16px;">
                             <?php echo $idInfo['title'];?>
                         </span>
@@ -41,7 +41,7 @@ include __DIR__ .'/php/show.php';
                         <i><?php echo date('Y-m-d H:i:s',$idInfo['addtime']);?></i>
                         <i>　</i>
                         <i class="layui-icon">&#xe635;</i>
-                        <i><?php echo $cidData['name'];?></i>
+                        <i title="<?php echo $cidData['as'];?>"><?php echo $cidData['name'];?></i>
                         <p><?php echo $idContent;?></p>
                     </div>
                 </>

@@ -36,7 +36,7 @@ include __DIR__ .'/php/index.php';
                 <div class="inform_con">
                     <div>
                         <span>
-                            <a href="/show.php?id=<?php echo $vData['id'],'&cid=',$vData['cid'];?>" style="font-size: 16px;font-weight: bold;">
+                            <a href="/show.php?id=<?php echo $vData['id'],'&cid=',$vData['cid'];?>" title="<?php echo $vData['title'];?>" style="font-size: 16px;font-weight: bold;">
                                 <?php echo $vData['title'];?>
                             </a>
                         </span>
@@ -46,7 +46,7 @@ include __DIR__ .'/php/index.php';
                         <i><?php echo date('Y-m-d H:i:s',$vData['addtime']);?></i>
                         <i>　</i>
                         <i class="layui-icon">&#xe635;</i>
-                        <i><?php echo $vData['cidstr'];?></i>
+                        <i title="<?php echo $cidData['as'];?>"><?php echo $cidData['name'];?></i>
                     </p>
                 </div>
                 <?php } ?>

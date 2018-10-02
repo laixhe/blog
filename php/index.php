@@ -14,13 +14,16 @@ if(empty($cidData)){
 // 获取栏目的文章id例表
 $cnArr =  Service::getInstance()->FileData()->getColumnDat($cidData['id']);
 
-// 获取当前栏目的目录路径
-$columnDir = Service::getInstance()->Catalog()->getDir($cidData['name']);
 // 获取栏目数据-总数据不包含内容
 $columnDirData = [];
 foreach ($cnArr as $value) {
-    // 获取某个文件的josn数据,将转为数组 - 取文章信息
-    $columnDirData[] = Service::getInstance()->FileData()->getFileJosn($columnDir . '/id/'.md5($value['id']).'.dat');
+
+    // 取文章信息
+    $info = Service::getInstance()->Article()->getInfo($cidData['name'], $value['id']);
+    if (!empty($info)){
+        $columnDirData[] = $info;
+    }
+
 }
 
 //print_r($columnDirData);echo '<br>';

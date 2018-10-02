@@ -23,11 +23,12 @@ Service::addService(
         'Column'   => Column::class,   //栏目数据
         'Catalog'  => Catalog::class,  //数据目录操作
         'FileData' => FileData::class, //文件数据操作
+        'Article'  => Article::class,  //文章操作
     ]
 );
 
 // 获取服务的实例
-$server = Service::getInstance();
+//$server = Service::getInstance();
 
 //echo json_encode([
 //    'id'      => 1,

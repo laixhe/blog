@@ -6,6 +6,7 @@
  * @method Column   Column()
  * @method Catalog  Catalog()
  * @method Filedata Filedata()
+ * @method Article Article()
  */
 class Service{
 
