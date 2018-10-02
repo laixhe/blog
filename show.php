@@ -8,13 +8,13 @@ include __DIR__ .'/php/show.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
-    <title>享受学习与思考的乐趣-Laiki</title>
+    <title>Laixhe-享受学习与思考的乐趣</title>
 
-    <link rel="stylesheet" href="static/css/reset.css">
-    <link rel="stylesheet" href="static/js/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/js/layui/css/layui.css">
 
-    <link rel="stylesheet" href="static/common.css">
-    <link rel="stylesheet" href="static/imformation.css">
+    <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/imformation.css">
 
 </head>
 <body>
@@ -57,7 +57,7 @@ include __DIR__ .'/php/show.php';
     <a href="http://www.miitbeian.gov.cn" target="_blank">鲁ICP备17035054号-1</a>
 </div>
 
-<script src="static/js/jquery-1.12.4.js"></script>
+<script src="/static/js/jquery-1.12.4.js"></script>
 <script>
     var id = <?php echo $cidData['id'];?>;
     $("#column li").eq(id-1).addClass("action");
