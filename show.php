@@ -10,7 +10,6 @@ include __DIR__ .'/php/show.php';
     <meta name="renderer" content="webkit">
     <title><?php echo $idInfo['title'];?>-Laixhe-享受学习与思考的乐趣</title>
 
-    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/js/layui/css/layui.css">
 
     <link rel="stylesheet" href="/static/common.css">

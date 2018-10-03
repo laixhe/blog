@@ -106,7 +106,7 @@
       color: #666; }
     .inform_wrap .inform_right .inform_con {
       padding: 18px 20px;
-      font-size: 0;
+      font-size: 14px;
       line-height: 2; }
       .inform_wrap .inform_right .inform_con p {
         color: #333; }
@@ -129,4 +129,10 @@
   margin-left: 540px;
   cursor: pointer; }
 
-/*# sourceMappingURL=imformation.css.map */
+.inform_con img{
+  max-width: 850px;
+}
+pre{
+  background: #3f3f3f;
+  color: #dcdcdc;
+}

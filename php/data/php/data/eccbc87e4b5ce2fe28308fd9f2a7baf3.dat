@@ -1,0 +1,133 @@
+<p>因为工作需求使用gRPC，这里的服务端采用 GO ，客户端有PHP，GO&nbsp;。服务端的部署这里就不写了，只写PHP的客户端。本人使用的是windows10，不过linux的操作流程基本一样。</p>
+<span id="OSC_h2_1"></span>
+<h2><strong>直接进入主题，分为了几部分</strong></h2>
+<p><strong><em>1、下载Protoc</em></strong></p>
+<p>下载地址：<a href="https://github.com/google/protobuf/releases" rel="nofollow">https://github.com/google/protobuf/releases</a></p>
+<p>这里采用的二进制文件，选择对应的平台，下载&nbsp;protoc-3.3.0-win32.zip</p>
+<p><img alt="" height="191" src="https://static.oschina.net/uploads/space/2017/0720/172354_HVgQ_2913738.png" width="1087"></p>
+<p>解压后得到，在bin文件夹下的&nbsp;protoc.exe。我放到 D:\protoc\protoc.exe 下，并加入到系统环境变量 Path 中，就可以使用&nbsp;protoc 命令了，可以用&nbsp;protoc --version 来查看是否成功。(<span style="background-color:#EE82EE">这一步很重要用于生成 protobuf 文件对应的 PHP代码 用的</span>)</p>
+<p><img alt="" height="592" src="https://static.oschina.net/uploads/space/2017/0720/173808_GhWc_2913738.png" width="1000"></p>
+<p><img alt="" height="176" src="https://static.oschina.net/uploads/space/2017/0727/151835_BiDL_2913738.png" width="668"></p>
+<p><strong><em>2、编写&nbsp;protocol buffers 文件</em></strong></p>
+<p>如何编写请看&nbsp;<a href="http://blog.csdn.net/u011518120/article/details/54604615" rel="nofollow">Protobuf3语言指南</a>&nbsp;写得不错，首先创建一个为&nbsp;testgrpc_com 项目，我这的位置是&nbsp;E:\www\testgrpc_com ，在项目下简单写了一个&nbsp;xuexitest.proto ，</p>
+<pre>syntax = "proto3";  // 指定proto版本
+
+package xuexitest; // 指定包名
+
+//定义 Xuexitest 服务
+service Xuexitest {
+    //定义 SayTest 方法
+    rpc SayTest(TestRequest) returns (TestReply) {}
+}
+
+//TestRequest 请求结构
+message TestRequest {
+    int64 typeid = 1;
+}
+
+//TestReply 响应结构
+message TestReply {
+
+   //返回数据类型
+    message GetData {
+      int64 id = 1;
+      string name = 2;
+   }
+
+   repeated GetData getdataarr = 1;
+}</pre>
+<p>3、下载 PHP的gRPC扩展和protobuf扩展</p>
+<p>PHP的gRPC扩展：<a href="http://pecl.php.net/package/gRPC" rel="nofollow">http://pecl.php.net/package/gRPC</a></p>
+<p>PHP的protobuf扩展： <a href="http://pecl.php.net/package/protobuf" rel="nofollow">http://pecl.php.net/package/protobuf</a></p>
+<p><strong>注：</strong>1、PHP的protobuf扩展没有windows版本的，但不影响使用无非就是运行速度慢点。(<span style="background-color:#DDA0DD">使用&nbsp;composer 加载 protobuf 类库，请看下面的&nbsp;composer.json 配置文件</span>)</p>
+<p><strong>注：</strong>2、如何安装PHP扩展，这里就不讲了。</p>
+<p><strong><em>4、编译 protocol buffers 文件</em></strong></p>
+<p>编译&nbsp;xuexitest.proto 使用&nbsp;protoc --php_out=. &nbsp;xuexitest.proto 会生成得到：</p>
+<p><img alt="" height="329" src="https://static.oschina.net/uploads/space/2017/0720/192109_0eDQ_2913738.png" width="456"></p>
+<p><em><strong>5、使用 PHP 的&nbsp;composer</strong></em></p>
+<p>首先 安装 composer 来管理和加载PHP的类库，如何安装这里就不讲了。(<span style="background-color:#EE82EE">这一步也很重要用于解决 Grpc和 protobuf 的PHP类库依赖</span>)</p>
+<p>在项目下编写 composer.json 放到刚刚编译&nbsp;protocol buffers 文件同级下</p>
+<pre>{
+  "name": "grpc-go-php",
+  "require": {
+    "grpc/grpc": "^v1.3.0",
+    "google/protobuf": "^v3.3.0"
+  },
+  "autoload":{
+    "psr-4":{
+      "GPBMetadata\\":"GPBMetadata/",
+      "Xuexitest\\":"Xuexitest/"
+    }
+  }
+}</pre>
+<p><img alt="" height="314" src="https://static.oschina.net/uploads/space/2017/0720/192051_vOsn_2913738.png" width="456"></p>
+<p><em><strong>6、使用 Composer 下载 PHP 代码</strong></em></p>
+<p>1.进入到项目的目录，如：E:\www\testgrpc_com 中在地址栏输入cmd回车即可</p>
+<p><img alt="" height="442" src="https://static.oschina.net/uploads/space/2017/0720/193429_bdCV_2913738.png" width="783"></p>
+<p>2.在命令提示符(黑窗口)下输入 composer install 回车，等待下载完成。</p>
+<p><img alt="" height="323" src="https://static.oschina.net/uploads/space/2017/0720/193915_vliU_2913738.png" width="437"></p>
+<p><em><strong>7、定义PHP的gRPC端户端</strong></em></p>
+<p>在项目的 Xuexitest 文件夹中，新建&nbsp;XuexitestClient.php 文件</p>
+<pre>&lt;?php
+namespace Xuexitest;
+
+/**
+ * service Xuexitest{}
+ * 编写 (gprc 定义 Xuexitest 服务)的客户端
+ */
+class XuexitestClient extends \Grpc\BaseStub{
+
+    public function __construct($hostname, $opts, $channel = null) {
+        parent::__construct($hostname, $opts, $channel);
+    }
+
+    /**
+     * rpc SayTest(TestRequest) returns (TestReply) {}
+     * 方法名尽量和 (gprc 定义 Xuexitest 服务)的方法一样
+     * 用于请求和响应该服务
+     */
+    public function SayTest(\Xuexitest\TestRequest $argument,$metadata=[],$options=[]){
+        // (/xuexitest.Xuexitest/SayTest) 是请求服务端那个服务和方法，基本和 proto 文件定义一样
+        // (\Xuexitest\TestReply) 是响应信息（那个类），基本和 proto 文件定义一样
+        return $this-&gt;_simpleRequest('/xuexitest.Xuexitest/SayTest',
+            $argument,
+            ['\Xuexitest\TestReply', 'decode'],
+            $metadata, $options);
+    }
+
+}</pre>
+<p><img alt="" height="410" src="https://static.oschina.net/uploads/space/2017/0720/200213_BX1h_2913738.png" width="767"></p>
+<p><em><strong>8、编写PHP执行文件</strong></em></p>
+<p>在项目下 新建 xuexitest.php</p>
+<pre>&lt;?php
+//引入 composer 的自动载加
+require __DIR__ . '/vendor/autoload.php';
+
+//用于连接 服务端
+$client = new \Xuexitest\XuexitestClient('127.0.0.1:50052', [
+    'credentials' =&gt; Grpc\ChannelCredentials::createInsecure()
+]);
+
+//实例化 TestRequest 请求类
+$request = new \Xuexitest\TestRequest();
+$request-&gt;setTypeid(1);
+
+//调用远程服务
+$get = $client-&gt;SayTest($request)-&gt;wait();
+
+//返回数组
+//$reply 是 TestReply 对象
+//$status 是数组
+list($reply, $status) = $get;
+
+//数组
+$getdata = $reply-&gt;getGetdataarr();
+
+foreach ($getdata as $k=&gt;$v){
+    echo $v-&gt;getId(),'=&gt;',$v-&gt;getName(),"\n\r";
+}</pre>
+<p><em><strong>9、赶快执行下</strong></em></p>
+<p><img alt="" height="236" src="https://static.oschina.net/uploads/space/2017/0720/202445_9cTE_2913738.png" width="989"></p>
+<p>&nbsp;</p>
+<p>这是源代码：<a href="https://github.com/laixhe/php_grpc" rel="nofollow">https://github.com/laixhe/php_grpc</a></p>
+<p>&nbsp;</p>
