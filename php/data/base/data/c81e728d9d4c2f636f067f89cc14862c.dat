@@ -1,7 +1,7 @@
 <p><strong>### 概述</strong></p>
 <p>对于任何一种进制，就表示某一位置上的数运算时是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。（来自百度）</p>
 <p><strong>### 进制图</strong></p>
-<p><img alt="进制图" height="925" src="https://static.oschina.net/uploads/space/2018/0104/134857_sSBQ_2913738.jpg" width="533"></p>
+<p><img alt="进制图" height="925" src="/static/img/001.jpg" width="533"></p>
 <p><strong>### 二、八、十六进制转换十进制</strong></p>
 <p>方法：以二进制为例：从低位到高位（即从右往左）计算，第0位的权值是2的0次方，第1位的权值是2的1次方，第2位的权值是2的2次方，依次递增下去，把最后的结果相加的值就是十进制的值了。</p>
 <table border="1" cellpadding="1" cellspacing="1" style="width:650px">
@@ -107,7 +107,7 @@
 </table>
 <p><strong>### 十进制转换二、八、十六进制</strong></p>
 <p>方法：以十进制转二进制为例：用十进制数除以2，分别取余和商数，当商数为0时，将余数倒着就是转化后的结果。（转八、十六进制一样，就是除以8和16）</p>
-<p><img alt="" height="225" src="https://static.oschina.net/uploads/space/2018/0104/214841_h4YE_2913738.png" width="308"></p>
+<p><img alt="" height="225" src="/static/img/002.png" width="308"></p>
 <p><strong>### 二进制和八进制相互转换</strong></p>
 <p>方法：每3个二进制对应1个八进制 (二进制从右往左分)，八进制则反每1个对应3个二进制</p>
 <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
@@ -179,7 +179,7 @@
 </table>
 <p><strong>###&nbsp;补充点 -&nbsp;十进制的小数(浮点数)转换成二进制</strong></p>
 <p>方法：小数部分和2相乘，取整数，不足1取0，<span style="color:#FF0000">每次相乘都是小数部分(不包括整数部分)</span>，然后顺序取整后的数就是转化后的结果(注意：有几位小数就要相乘几次，每次都结果在乘2)。</p>
-<p><img alt="" height="341" src="https://static.oschina.net/uploads/space/2018/0104/220212_rekh_2913738.png" width="319"></p>
+<p><img alt="" height="341" src="/static/img/003.png" width="319"></p>
 <p><strong>###&nbsp;补充点 -&nbsp;一般在程序中赋值方式</strong></p>
 <p>int a = 123;&nbsp; &nbsp; //十进制方式赋值，以正常数字1-9开头</p>
 <p>int b = 0123;&nbsp; //八进制方式赋值，以数字0开头</p>
